@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/izumi601/omoide-wiki",
+  "homepage": "https://izumi601.github.io/omoide-wiki",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
