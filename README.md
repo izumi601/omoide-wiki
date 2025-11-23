@@ -1,16 +1,232 @@
-# React + Vite
+# 🎉 思い出ウィキ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+<img width="1118" height="908" alt="スクリーンショット 2025-11-24 0 32 54" src="https://github.com/user-attachments/assets/d76c1952-31ca-456d-8bc3-a0f166a8b089" />
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📖 目次
+- [なぜ作ったか](#なぜ作ったか)
+- [解決したい課題](#解決したい課題)
+- [コンセプト](#コンセプト)
+- [主な機能](#主な機能)
+- [技術スタック](#技術スタック)
+- [技術選定の背景](#技術選定の背景)
+- [ローカル起動方法](#ローカル起動方法)
+- [このプロジェクトから学んだこと](#このプロジェクトから学んだこと)
+- [今後の展開](#今後の展開)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## なぜ作ったか
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2000年のライブで隣にいた人って、今もどこかにいるのかな。
+
+すでに解散したアーティスト、もう開催されないイベント。
+でも、その思い出は確かにあって、今も心の中で輝いている。
+
+**同じ空間にいた名前も知らない誰かが、今もどこかで頑張ってると思うと、何気に自分も頑張れる。**
+
+そんな「静かな共感」の場所を作りたくて、このアプリを作りました。
+
+---
+
+## 解決したい課題
+
+### 現代社会の3つの課題
+
+1. **SNS疲れ**
+   - 「いいね」を求める投稿に疲弊
+   - 承認欲求に振り回される日々
+   - フォロワー数との比較で自己否定
+
+2. **孤独感の蔓延**
+   - つながっているようで孤独
+   - 浅いつながりばかり
+   - 本質的な共感の欠如
+
+3. **自己肯定感の低下**
+   - 「自分は何も持ってない」という錯覚
+   - 過去を振り返る時間がない
+   - 積み重ねてきたものへの気づきの欠如
+
+---
+
+## コンセプト
+
+### これは何か
+
+- **SNSではない**（承認欲求を求めない）
+- **日記ではない**（完全に孤独じゃない）
+- **イベント検索サイトではない**（未来ではなく過去を見る）
+
+**「過去を肯定的に振り返ることで、明日への活力を生む場所」**です。
+
+### 3つの核心的価値
+
+#### 1. 過去の肯定
+「案外、色々やってたんだな」と気づくことで、自己肯定感が生まれる
+
+#### 2. 静かな共感
+匿名で、フォローもコメントもない。ただ「同じ記憶を持つ人がいる」だけの温かさ
+
+#### 3. 明日への活力
+過去に生きるのではなく、「また新しい思い出を重ねよう」と思える設計
+
+---
+
+## 主な機能
+
+### 🔍 イベント検索
+- 1980〜2005年のイベントを収録（万博、音楽フェス、イルミネーション等）
+- 年代・地域・キーワードでの絞り込み
+- 「あの日から○○日」という時間表現
+
+### 💭 私の足跡（マイイベント）
+- 「私も行った」ボタンで記録
+- 自分だけの人生年表を作成
+- 一言メモを残せる
+
+### 🌸 思い出の公開・共有
+- 公開/非公開を選択可能
+- 公開しても完全匿名
+- 「みんなの思い出」で温かい共感を体験
+
+### ➕ イベント追加機能
+- ユーザー自身がイベントを追加可能
+- データベースを共創していく仕組み
+
+---
+
+## 技術スタック
+
+### Frontend
+- **React 18** - UIフレームワーク
+- **Vite** - 高速ビルドツール
+- **Tailwind CSS** - デザインシステム
+- **Lucide React** - アイコンライブラリ
+
+### Backend（将来的な拡張用）
+- **FastAPI** (Python 3.11) - RESTful API
+- **SQLite / PostgreSQL** - データベース
+
+### デプロイ（予定）
+- **Frontend**: Vercel
+- **Backend**: Render
+
+---
+
+## 技術選定の背景
+
+### なぜReactを選んだか
+
+このアプリは当初、Pythonの学習ツールであるStreamlitで開発を始めました。
+
+しかし、開発を進める中で、**このアプリの核心的価値である「温かさ」「静かな共感」を視覚的に表現するには、より細かいデザインコントロールが必要**だと気づきました。
+
+そこで、当時未経験だった**React + Tailwind CSS**に挑戦しました。
+
+#### Reactを選んだ理由
+- グラデーション、ガラスモーフィズム、アニメーションなど、感情に訴えるデザインが作れる
+- コンポーネント設計で「温かさ」を体系的に表現できる
+- 将来的なPWA化・モバイル対応も視野に入れられる
+
+### 学習プロセス
+- React公式ドキュメント
+- Stack Overflow
+- ChatGPT（デバッグ・設計相談）
+- 試行錯誤を繰り返しながら約4週間で実装
+
+---
+
+## ローカル起動方法
+
+### 前提条件
+- Node.js 18以上
+
+### インストール
+
+bash
+# リポジトリをクローン
+git clone https://github.com/izumi601/omoide-wiki.git
+cd omoide-wiki
+
+# フロントエンド起動
+cd frontend
+npm install
+npm run dev
+
+
+ブラウザで http://localhost:5173 を開いてください。
+
+## このプロジェクトから学んだこと
+
+### 1. ビジョン駆動の開発
+
+**技術ありきではなく、「何を実現したいか」から逆算する**ことの重要性を学びました。
+
+- 課題設定：SNS疲れ、孤独感、自己肯定感の低下
+- 解決策：静かな共感、過去の肯定、明日への活力
+- 手段：React + Tailwindによる温かいデザイン
+
+この流れを**自分で設計し、言語化し、実装する**経験ができました。
+
+### 2. 未知の技術への挑戦
+
+React、Vite、Tailwindは、このプロジェクトを始めるまで触ったことがありませんでした。
+
+しかし、**「ビジョンを実現するために必要」**という明確な目的があったため、
+公式ドキュメント、Stack Overflow、AIツールを駆使して、形にすることができました。
+
+**未知の技術でも、目的が明確であれば、調べて形にできる**ことを実感しました。
+
+### 3. ユーザー体験の言語化
+
+「温かさ」「静かな共感」「過去の肯定」といった抽象的な価値を、
+
+- **時間表現**（「あの日から○○日」）
+- **言葉選び**（「足跡」「静かに照らす」）
+- **色彩設計**（アンバー系のグラデーション）
+- **インタラクション**（丸みのあるボタン、ゆっくりなトランジション）
+
+といった**具体的な設計要素に落とし込む**プロセスを経験しました。
+
+### 4. 伴走型思考の体現
+
+このアプリは、「こうしなさい」と押し付けるのではなく、
+
+- **公開/非公開を選べる**（自分で決められる）
+- **匿名で温かい**（プレッシャーがない）
+- **過去を肯定して、未来を見る**（自律を促す）
+
+という**「寄り添う」設計**になっています。
+
+これは、カスタマーサクセスにおける伴走型支援の思想と重なると感じました。
+
+---
+
+## 今後の展開
+
+### Phase 1: Web版の完成（現在）
+- ✅ 基本機能実装
+- ✅ デザイン完成
+- 🔄 ユーザーテスト実施中
+
+### Phase 2: 機能拡張
+- [ ] バックエンド連携（FastAPI + PostgreSQL）
+- [ ] ユーザー認証（匿名認証）
+- [ ] 画像アップロード機能
+- [ ] PWA化（アプリのような体験）
+
+### Phase 3: ビジネス展開（構想）
+- **介護施設向けB2B展開**
+  - 回想法支援ツールとして
+  - 認知症ケアへの応用
+  - 職員のウェルビーイング向上
+- **ML機能の追加**
+  - 感情分析（ポジティブ反応の可視化）
+  - レコメンデーション（似た思い出の提案）
+  - 画像認識（写真からイベント推定）
+
+
+
